@@ -1,0 +1,35 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible', content='IE=edge')
+  meta(name='viewport', content='width=device-width, initial-scale=1.0')
+  title SIDE-BAR
+  // ICONOS
+  link(href='https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', rel='stylesheet')
+  // ESTILOS
+  link(rel='stylesheet', href='/stylesheets/style-side-bar.css')
+nav
+  h2
+    | SCOOBY 
+    br
+    |  ATTENDANCE
+  img(src='/images/logodog.png')
+  #options
+    ul
+      li
+        a(href='/panel')
+          i.fa.fa-pencil-square-o(aria-hidden='true')
+          p Inicio
+      li
+        a(href='/crearcurso')
+          i.fa.fa-plus-circle(aria-hidden='true')
+          p Crear Cursos
+      li
+        a(href='/vercursos')
+          i.fa.fa-list-alt(aria-hidden='true')
+          p Cursos
+      li
+        a(href='/login')
+          i.fa.fa-sign-out(aria-hidden='true')
+          p Salir
+  block content

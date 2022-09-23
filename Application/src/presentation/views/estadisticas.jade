@@ -1,0 +1,93 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(http-equiv='X-UA-Compatible' content='IE=edge')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    title VISTA PRINCIPAL
+    // ICONOS
+    link(href='https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' rel='stylesheet')
+    // ESTILOS
+    link(rel='stylesheet' href='/stylesheets/style-side-bar.css')
+    link(rel='stylesheet' href='/stylesheets/style-principal.css')
+  body
+    nav
+      h2
+        | SCOOBY 
+        br
+        |  ATTENDANCE
+      img(src='/images/logodog.png')
+      #options
+        ul
+          li
+            a(href='/panel')
+              i.fa.fa-pencil-square-o(aria-hidden='true')
+              p Inicio
+          li
+            a(href='/crearcurso')
+              i.fa.fa-plus-circle(aria-hidden='true')
+              p Crear Cursos
+          li
+            a(href='/vercursos')
+              i.fa.fa-list-alt(aria-hidden='true')
+              p Cursos
+          li
+            a(href='/login')
+              i.fa.fa-sign-out(aria-hidden='true')
+              p Salir
+    main
+      .slideshow-container
+        .mySlides.fade
+          .numbertext 1 / 3
+          img(src='/images/1.jpg' style='width:100%')
+        .mySlides.fade
+          .numbertext 2 / 3
+          img(src='/images/2.jpg' style='width:100%')
+        .mySlides.fade
+          .numbertext 3 / 3
+          img(src='/images/3.png' style='width:100%')
+        a.prev(onclick='plusSlides(-1)') ❮
+        a.next(onclick='plusSlides(1)') ❯
+      br
+      div(style='text-align:center')
+        span.dot(onclick='currentSlide(1)')
+        span.dot(onclick='currentSlide(2)')
+        span.dot(onclick='currentSlide(3)')
+      #base
+        h1#tit Bienvenido a Scooby Attendance :D
+        p.panel_tx
+          | La asistencia es una de las tareas administrativas que deben realizarse al comienzo de cada clase. Esto
+          | conlleva a la pérdida de tiempo valioso al comienzo de la clase que es aproximadamente el 10% de la
+          | misma y a veces es difícil de gestionar. Es por ello que es necesaria la elaboración de una aplicación
+          | móvil y web que utilice métodos de identificación biométrica y de identificación convencional, aplicando
+          | el uso de base de datos relaciones junto con la implementación de APIs; además el uso de una plataforma
+          | web desde donde se podrá administrar la aplicación, mostrar estadísticas de los estudiantes y de las
+          | clases en general utilizando tecnologías modernas.
+      script.
+        var slideIndex = 1;
+        showSlides(slideIndex);
+        function plusSlides(n) {
+        showSlides(slideIndex += n);
+        }
+        function currentSlide(n) {
+        showSlides(slideIndex = n);
+        }
+        function showSlides(n) {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("dot");
+        if (n > slides.length) {
+        slideIndex = 1
+        }
+        if (n < 1) {
+        slideIndex = slides.length
+        }
+        for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+        }

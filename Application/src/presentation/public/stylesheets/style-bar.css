@@ -1,0 +1,55 @@
+@import url("https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+#bar {
+  height: 10vh;
+  margin: 30px 25px;
+  background-color: #363740;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+#bar h4,
+#bar h5 {
+  color: white;
+  font-family: Mulish, sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+#bar i {
+  margin-right: 10px;
+  margin-left: 20px;
+  color: white;
+}
+
+#bar-side {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+#bar-side a {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-right: 20px;
+  margin-left: 20px;
+  border-radius: 10px;
+  text-decoration: none;
+}
+
+#bar-side a:hover {
+  background-color: #86878c;
+}
+
+#bar-line {
+  height: 6vh;
+  width: 3px;
+  background-color: whitesmoke;
+  margin-left: 20px;
+}

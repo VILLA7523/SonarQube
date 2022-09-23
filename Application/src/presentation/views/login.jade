@@ -1,0 +1,25 @@
+doctype html
+html(lang='es')
+  head
+    meta(charset='UTF-8')
+    meta(http-equiv='X-UA-Compatible' content='IE=edge')
+    link(rel='stylesheet' href='/stylesheets/style_log.css')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    title LOGIN
+  body
+    .box-side
+      img(src='images/logodog.png' alt='Perro Logo')
+      hr
+      p#name Scooby Attendance
+      hr
+      #enlace
+        a(href='/register') ¿No tiene cuenta?, presione aquí
+    .data
+      h1 INGRESAR
+      img(src='images/unsa.png' alt='Unsa Logo' )
+      form(action='/loginchecked' method='post')
+        label(for='correo') Correo Institucional
+        input#correo(type='email' name='correo' placeholder='Ingrese su correo')
+        label(for='contra')  Contraseña
+        input#contra(type='password' name='contra' placeholder='************')
+        input(type='submit' value='INGRESAR')

@@ -1,0 +1,104 @@
+doctype html
+html(lang='es')
+  head
+    meta(charset='UTF-8')
+    meta(http-equiv='X-UA-Compatible' content='IE=edge')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    title VER ASISTENCIAS
+    // ICONOS
+    link(href='https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' rel='stylesheet')
+    // ESTILOS
+    link(rel='stylesheet' href='/stylesheets/style-side-bar.css')
+    link(rel='stylesheet' href='/stylesheets/style-table.css')
+    link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css' integrity='sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm' crossorigin='anonymous')
+    // JAVASCRIPT
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.debug.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js' integrity='sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==' crossorigin='anonymous' referrerpolicy='no-referrer')
+    script(type='text/javascript', src='https://www.gstatic.com/charts/loader.js')
+    script(type='text/javascript').
+      google.charts.load("current", {packages:["corechart"]});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+      var data = google.visualization.arrayToDataTable([
+      ['Estado', 'Cantidad'],
+      ['Asistencia',      #{asistencias}],
+      ['Inasistencia',    #{faltas}]
+      ]);
+      var options = {
+      title: 'Estadísticas #{fecha}',
+      is3D: true,
+      };
+      var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
+      chart.draw(data, options);
+      }
+      function generatePDF() {
+          var doc = new jsPDF();
+          doc.fromHTML(document.getElementById("test"),
+              15,
+              15, {
+                  'width': 200
+              },
+              function(a) {
+                  doc.save("ReporteFecha.pdf");
+              });
+      }
+
+  body
+    nav
+      h2
+        | SCOOBY 
+        br
+        |  ATTENDANCE
+      img(src='/images/logodog.png')
+      #options
+        ul
+          li
+            a(href='/panel')
+              i.fa.fa-pencil-square-o(aria-hidden='true')
+              p Inicio
+          li
+            a(href='/crearcurso')
+              i.fa.fa-plus-circle(aria-hidden='true')
+              p Crear Cursos
+          li
+            a(href='/vercursos')
+              i.fa.fa-list-alt(aria-hidden='true')
+              p Cursos
+          li
+            a(href='/login')
+              i.fa.fa-sign-out(aria-hidden='true')
+              p Salir
+    main#test
+      
+      h1 Fecha: #{fecha} 
+      
+      h4 Asistencias : #{asistencias} -  Faltas : #{faltas}
+
+      a.btn.btn-primary.btn-lm.mt-2.active(href='javascript:generatePDF()' role='button') Generar Reporte en PDF
+
+      #piechart_3d(style='width: 120%; height: 500px;')
+
+
+      table.table.table-hover
+        thead
+          tr
+            th(scope='col') ID Estudiante
+            th(scope='col') Nombre
+            th(scope='col') Score
+            th(scope='col') Hora
+        tbody
+
+
+          each student in students
+            tr
+              td.text-center.align-middle  #{student.StudentID} 
+              td.text-center.align-middle  #{student.First_Name} #{student.Last_Name}
+              td.text-center.align-middle  #{student.score} 
+              td.text-center.align-middle  #{student.hora} 
+    script(src='https://code.jquery.com/jquery-3.2.1.slim.min.js' integrity='sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN' crossorigin='anonymous')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js' integrity='sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q' crossorigin='anonymous')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js' integrity='sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl' crossorigin='anonymous')
+
+
+
+

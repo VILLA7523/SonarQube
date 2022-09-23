@@ -1,0 +1,44 @@
+doctype html
+html(lang='es')
+  head
+    meta(charset='UTF-8')
+    meta(http-equiv='X-UA-Compatible' content='IE=edge')
+    link(rel='stylesheet' href='/stylesheets/style_log.css')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    title Registro
+  body
+    .box-side
+      img(src='/images/logodog.png' alt='' srcset='')
+      hr
+      p#name Scooby Attendance
+      hr
+      #enlace
+        a(href='/login') Regresar a login
+    .data
+      h1 REGISTRARSE
+      form(action='registercheck' method='post')
+        label(for='nombre') Nombres
+        input#nombre(type='text' name='nombre' placeholder='Ingrese sus nombres')
+        label(for='apellidos') Apellidos
+        input#apellidos(type='text' name='apellidos' placeholder='Ingrese sus apellidos')
+        label(for='dni') DNI
+        input#dni(type='text' name='dni' placeholder='Ingrese su DNI')
+        label(for='iddni') Código de Docente
+        input#dni(type='text' name='iddni' placeholder='Ingrese su Código de Docente')
+        label(for='cel') Celular
+        input#cel(type='text' name='cel' placeholder='Ingrese su telefono celular')
+        #box-1
+          label(for='ciudad') Ciudad
+            select#ciudad(name='ciudad')
+              each item in cities
+                option(value='#{item.CityID}') #{item.City_Name} 
+        #box-2
+          label(for='dep') Departamento Académico
+          select#dep(name='dep')
+            option(value='Matematicas') Matemáticas
+            option(value='Sociologia') Sociología
+        label(for='correo') Correo Institucional
+        input#correo(type='email' name='correo' placeholder='profesor@unsa.edu.pe')
+        label(for='contra') Contraseña
+        input#contra(type='password' name='contra' placeholder='**************')
+        input(type='submit' value='REGISTRARSE')

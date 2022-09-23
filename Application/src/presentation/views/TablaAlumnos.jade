@@ -1,0 +1,84 @@
+doctype html
+html(lang='es')
+  head
+    meta(charset='UTF-8')
+    meta(http-equiv='X-UA-Compatible' content='IE=edge')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    title AÑADIR NUEVO CURSO
+    // ICONOS
+    link(href='https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' rel='stylesheet')
+    // ESTILOS
+    link(rel='stylesheet' href='/stylesheets/style-side-bar.css')
+    link(rel='stylesheet' href='/stylesheets/style-table.css')
+    link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css' integrity='sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm' crossorigin='anonymous')
+  body
+    nav
+      h2
+        | SCOOBY 
+        br
+        |  ATTENDANCE
+      img(src='/images/logodog.png')
+      #options
+        ul
+          li
+            a(href='/panel')
+              i.fa.fa-pencil-square-o(aria-hidden='true')
+              p Inicio
+          li
+            a(href='/crearcurso')
+              i.fa.fa-plus-circle(aria-hidden='true')
+              p Crear Cursos
+          li
+            a(href='/vercursos')
+              i.fa.fa-list-alt(aria-hidden='true')
+              p Cursos
+          li
+            a(href='/login')
+              i.fa.fa-sign-out(aria-hidden='true')
+              p Salir
+    main
+      form(action='/agregaralumno/#{id}' method='post')
+        .input-group.mb-3
+          .input-group-prepend
+            span#inputGroup-sizing-default.input-group-text  Ingrese CUI del Alumno
+          input.form-control(type='text' name='studentid' aria-label='Default' aria-describedby='inputGroup-sizing-default')
+        button.btn.btn-secondary.btn-sm(type='success')  AGREGAR ALUMNO
+
+
+      table.table.table-hover.mt-5
+        thead
+          tr
+            th(scope='col') ALUMNO
+            th(scope='col') CUI
+            th(scope='col') CORREO INSTITUCIONAL
+            th(scope='col') OPCIONES
+        tbody
+          each item in students
+            tr
+              td.text-center.align-middle
+                img(src='https://picsum.photos/300')
+                |  #{item.First_Name} - #{item.Last_Name}
+              td.text-center.align-middle  #{item.StudentID} 
+              td.text-center.align-middle  #{item.Email} 
+              td.text-center.align-middle
+              
+                 a(href = '/deletealumnos/#{id}/#{item.StudentID}') Eliminar
+
+    script(src='https://code.jquery.com/jquery-3.2.1.slim.min.js' integrity='sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN' crossorigin='anonymous')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js' integrity='sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q' crossorigin='anonymous')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js' integrity='sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl' crossorigin='anonymous')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

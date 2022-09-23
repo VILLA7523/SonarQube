@@ -1,0 +1,98 @@
+doctype html
+html(lang='es')
+  head
+    meta(charset='UTF-8')
+    meta(http-equiv='X-UA-Compatible' content='IE=edge')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    title AÑADIR HORARIO
+    // ICONOS
+    link(href='https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' rel='stylesheet')
+    // ESTILOS
+    link(rel='stylesheet' href='/stylesheets/style-side-bar.css')
+    link(rel='stylesheet' href='/stylesheets/style-bar.css')
+    link(rel='stylesheet' href='/stylesheets/style-create.css')
+    link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css' integrity='sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm' crossorigin='anonymous')
+
+  body
+    nav
+      h2
+        | SCOOBY 
+        br
+        |  ATTENDANCE
+      img(src='/images/logodog.png')
+      #options
+        ul
+          li
+            a(href='/panel')
+              i.fa.fa-pencil-square-o(aria-hidden='true')
+              p Inicio
+          li
+            a(href='/crearcurso')
+              i.fa.fa-plus-circle(aria-hidden='true')
+              p Crear Cursos
+          li
+            a(href='/vercursos')
+              i.fa.fa-list-alt(aria-hidden='true')
+              p Cursos
+          li
+            a(href='/login')
+              i.fa.fa-sign-out(aria-hidden='true')
+              p Salir
+    main
+      #bar
+        div
+          h4 #{name}
+
+      h1 HORARIOS
+
+      table
+        tbody
+          tr
+            th Día
+            th Inicio
+            th Fin
+            th Opciones
+          each item in horarios
+            tr
+              td #{item.Day}
+              td #{item.Start}
+              td #{item.Finish}
+              td.text-center.align-middle
+                a.btn.btn-danger.btn-sm.mb-1.active(href='/deleteschedule/#{id}/#{item.ScheduleID}/#{name}' role='button') Eliminar
+      h1 AÑADIR HORARIO
+      form(action='/crearhorariochecked/#{id}/#{name}' method='post')
+        .agregar
+          #cont3
+            select#dia(name='dia')
+              option(value='Lunes') Lunes
+              option(value='Martes') Martes
+              option(value='Miercoles') Miércoles
+              option(value='Jueves') Jueves
+              option(value='Viernes') Viernes
+          #cont1
+            label(for='hour1') Hora de Inicio 
+            select#hour1(name='hour1')
+              option(value='07:00:00') 07:00
+              option(value='07:50:00') 07:50
+              option(value='08:40:00') 08:40
+              option(value='08:50:00') 08:50
+              option(value='09:40:00') 09:40
+              option(value='10:30:00') 10:30
+              option(value='10:40:00') 10:40
+              option(value='11:30:00') 11:30
+              option(value='12:20:00') 12:20
+              option(value='01:10:00') 01:10
+          #cont2
+            label(for='hour2') Hora de Fin
+            select#hour2(name='hour2')
+              option(value='07:00:00') 07:00
+              option(value='07:50:00') 07:50
+              option(value='08:40:00') 08:40
+              option(value='08:50:00') 08:50
+              option(value='09:40:00') 09:40
+              option(value='10:40:00') 10:30
+              option(value='10:40:00') 10:40
+              option(value='11:30:00') 11:30
+              option(value='12:20:00') 12:20
+              option(value='01:10:00') 01:10
+        input(type='submit' value='Crear')

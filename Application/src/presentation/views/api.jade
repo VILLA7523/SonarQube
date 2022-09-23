@@ -1,0 +1,68 @@
+doctype html
+html
+    head
+        title Api Attendance
+    body
+        h1 Api Attendance
+        p EndPoints GET
+            ul
+                li 
+                    a(href="/api/alumnos",target="_blank") GET /api/alumnos
+                li
+                    a(href="/api/alumnos/20213197",target="_blank") GET /api/alumnos/CUI
+                li 
+                    a(href="/api/profesores",target="_blank") GET /api/profesores
+                li 
+                    a(href="/api/personas",target="_blank") GET /api/personas
+                li 
+                    a(href="/api/verificar",target="_blank") GET /api/verificar
+                li 
+                    a(href="/api/verificar/20163429",target="_blank") GET /api/verificar/CUI
+                li 
+                    a(href="/api/ciudades",target="_blank") GET /api/ciudades
+                li 
+                    a(href="/api/ciudades/nombre/Arequipa",target="_blank") GET /api/ciudades/nombre/BUSCAR-POR-NOMBRE
+                li 
+                    a(href="/api/ciudades/id/3",target="_blank") GET /api/ciudades/id/ID
+                li 
+                    a(href="/api/cursos",target="_blank") GET /api/cursos
+                li 
+                    a(href="/api/cursos/id/3",target="_blank") GET /api/cursos/id/ID
+                li 
+                    a(href="/api/cursos/nombre/Calculo en Varias Variables",target="_blank") GET /api/cursos/nombre/NOMBRE-CURSO
+        p EndPoints POST
+            ul
+                li POST /api/alumnos/registrar
+                    ul
+                        li First_Name,
+                        li Last_Name,
+                        li Email,
+                        li DNI,
+                        li Home_Phone,
+                        li Mobile_Phone,
+                        li CityID,
+                        li StudentID,
+                        li Career,
+                        li Faculty,
+                        li Password,
+                        li IMEI
+
+                li POST /api/alumnos/ingresar
+                    ul
+                        li email
+                        li password
+
+                li POST /api/alumnos/asistencia
+                    ul
+                        li studentid (CUI)
+                        li professorid
+                        li curseid
+
+                li POST /api/profesores/inscribir
+                    ul 
+                        li studentid (CUI)
+                        li curseid
+        a(href="/images/digramaimagen.jpg",target="_blank")
+        img.className#IdName(src="/images/digramaimagen.jpg" alt="Digrama" width="100%")
+
+        
